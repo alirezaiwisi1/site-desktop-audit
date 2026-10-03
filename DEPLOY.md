@@ -28,3 +28,17 @@ npx wrangler deploy
 
 ## TikTok LIVE
 بک‌اند تشخیص LIVE دست‌نخورده است (`TIKTOK_API_BASE/api/status`). تینا فقط متادیتای استاتیک پروفایل‌ها را مدیریت می‌کند.
+
+
+## روش ۰ — آپلود مستقیم در داشبورد (بدون بیلد — همان فایلی که ارور «build process» داد)
+فایل `Persian-AROPL-static-direct-upload.zip` مخصوص همین روش است:
+- هیچ wrangler config / build process ندارد → آپلودر داشبورد آن را می‌پذیرد
+- فایل‌ها در ریشه ZIP هستند (نه داخل پوشه) → لازم نیست دستی جابه‌جا کنی
+- پنل `/admin` production (متصل به TinaCloud) داخلش هست
+
+مرحله‌ها:
+1. Cloudflare → **Workers & Pages → Create → Pages → Upload assets** (یا Workers > Upload assets)
+2. نام پروژه را بگذار (مثلاً `persian-aropl`) و ZIP را آپلود کن
+3. تمام! سایت روی `https://<project>.pages.dev` و ادمین روی `/admin`
+
+نکته: در این روش، Worker سفارشی (`/health`، پراکسی وضعیت) نداری و وضعیت LIVE مستقیم از بک‌اند Render خوانده می‌شود (CORS بک‌اند از قبل دامنه‌های pages.dev را نمی‌شناسد؛ اگر وضعیت «نامشخص» دیدی، در بک‌اند `src/accounts.js`/CORS دامنه pages.dev را اضافه کن یا از روش ۱ با wrangler deploy استفاده کن).
