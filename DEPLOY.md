@@ -1,22 +1,21 @@
-# دیپلوی Persian-AROPL در Cloudflare
+# دیپلوی Persian-AROPL در Cloudflare Pages
 
-## روش ۰ — آپلود مستقیم در داشبورد (ساده‌ترین — پیشنهادی)
-1. این فایل را دانلود کن: `Persian-AROPL-static-direct-upload.zip`
+## آپلود مستقیم (پیشنهادی)
+1. دانلود: `Persian-AROPL-static-direct-upload.zip`
 2. Cloudflare → **Workers & Pages → Create → Pages → Upload assets**
 3. نام پروژه: `persian-aropl`
-4. ZIP را بکش و رها کن → Deploy
-5. سایت: `https://persian-aropl.pages.dev` — ادمین: `https://persian-aropl.pages.dev/admin`
+4. ZIP را بکش و رها کن → **Deploy**
 
-## روش ۱ — Wrangler CLI (با Worker پراکسی TikTok)
-```bash
-unzip Persian-AROPL-cloudflare-deploy.zip && cd Persian-AROPL-cloudflare-deploy
-npm install && npx wrangler deploy
-```
-سایت: `https://persian-aropl.<your-subdomain>.workers.dev` — ادمین: `/admin`
+سایت: `https://persian-aropl.pages.dev`
+ادمین TinaCMS: `https://persian-aropl.pages.dev/admin`
 
-## ادمین TinaCMS (بعد از دیپلوی)
-1. در [app.tina.io](https://app.tina.io) پروژه را باز کن و **Site URL** را روی آدرس دیپلوی‌شده ست کن
-2. به `/admin` برو → Log in با حساب TinaCloud
+## فعال‌سازی ادمین Tina (یک‌بار)
+1. در [app.tina.io](https://app.tina.io) پروژه را باز کن و **Site URL** را روی آدرس Pages ست کن (مثلاً `https://persian-aropl.pages.dev`)
+2. به `/admin` برو → **Log in** با حساب TinaCloud
 3. کالکشن‌ها: Site Settings، Books، YouTube، TikTok Accounts، Study
 
-نکته: LIVE/OFFLINE تیک‌تاک از بک‌اند Render می‌آید و به Tina ربطی ندارد.
+هر ذخیره در ادمین، یک commit به `github.com/alirezaiwisi1/Persian-AROPL` می‌زند؛ سپس ZIP جدید بساز و دوباره آپلود کن (یا بعداً اتصال Git را در Pages فعال کن).
+
+## نکته‌ها
+- LIVE/OFFLINE تیک‌تاک از بک‌اند Render می‌آید و به Tina ربطی ندارد.
+- ظاهر سایت با ZIP اصلی `persian_AROPL-tiktok-live.zip` بایت‌به‌بایت یکسان است.
